@@ -3,7 +3,7 @@ import {
   ADD_TO_CART,
   PRODUCT_LOADED,
   REMOVE_FROM_CART,
-  REMOVE_PRODUCT,
+  REMOVE_PRODUCT
 } from "../actionTypes/actionTypes";
 
 export const addProduct = (product) => {

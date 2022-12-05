@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
 
   const state = useSelector(state => state);
-  console.log(state);
+
 
   const activeClass = "text-white  bg-indigo-500 border-white";
 

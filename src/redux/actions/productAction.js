@@ -3,7 +3,9 @@ import {
   ADD_TO_CART,
   PRODUCT_LOADED,
   REMOVE_FROM_CART,
-  REMOVE_PRODUCT
+  REMOVE_PRODUCT,
+  TOGGLE_BRANDS,
+  TOGGLE_STOCK
 } from "../actionTypes/actionTypes";
 
 export const addProduct = (product) => {
@@ -38,5 +40,19 @@ export const loaded = (products) => {
   return {
     type: PRODUCT_LOADED,
     payload: products,
+  };
+};
+
+
+export const toggleBrand = (brand) => {
+  return {
+    type: TOGGLE_BRANDS,
+    payload: brand,
+  };
+};
+
+export const toggleStock = () => {
+  return {
+    type: TOGGLE_STOCK,
   };
 };

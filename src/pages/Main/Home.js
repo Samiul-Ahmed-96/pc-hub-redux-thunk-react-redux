@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard";
+import { toggleBrand, toggleStock } from "../../redux/actions/productAction";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -11,8 +13,9 @@ const Home = () => {
       .then((data) => setProducts(data.data));
   }, []);
 
-  const state = useSelector(state => state);
+  const state = useSelector(state => state.filter);
 
+  console.log(state)
 
   const activeClass = "text-white  bg-indigo-500 border-white";
 
@@ -21,13 +24,14 @@ const Home = () => {
       <div className='mb-10 flex justify-end gap-5'>
         <button
           className={`border px-3 py-2 rounded-full font-semibold ${activeClass} `}
+          onClick={()=>dispatch(toggleStock())}
         >
           In Stock
         </button>
-        <button className={`border px-3 py-2 rounded-full font-semibold`}>
+        <button className={`border px-3 py-2 rounded-full font-semibold`} onClick={()=>dispatch(toggleBrand('amd'))}>
           AMD
         </button>
-        <button className={`border px-3 py-2 rounded-full font-semibold`}>
+        <button className={`border px-3 py-2 rounded-full font-semibold`} onClick={()=>dispatch(toggleBrand('intel'))}>
           Intel
         </button>
       </div>

@@ -19,7 +19,6 @@ const AddProduct = () => {
       spec: [],
     };
 
-    console.log(product);
   };
 
   return (

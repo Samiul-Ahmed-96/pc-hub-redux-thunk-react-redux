@@ -10,7 +10,6 @@ const cartCounter = (store) => (next) => (action) => {
       ...action,
       payload: { ...action.payload, cartPosition: cart.length },
     };
-    console.log(newAction);
     return next(newAction);
   }
   return next(action);
